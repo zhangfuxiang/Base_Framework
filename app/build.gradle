@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "com.example.fuxiangzhang.base_framwork"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
+    //dagger2相关依赖
+    compile 'com.google.dagger:dagger:2.4'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.4'
+    compile 'org.glassfish:javax.annotation:10.0-b28'
+    //rxjava相关依赖
+    compile 'io.reactivex:rxjava:1.2.1'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    //retrofit相关依赖
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    //okhttp相关依赖
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    //butterknife view注解框架相关依赖
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //引入eventbus
+    compile 'org.greenrobot:eventbus:3.0.0'
+    //cardview 和 recylerview 的相关依赖
+    //noinspection GradleCompatible
+    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
+    //noinspection GradleCompatible
+    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    //noinspection GradleCompatible
+    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    compile 'com.jakewharton.timber:timber:4.5.1'
+}
