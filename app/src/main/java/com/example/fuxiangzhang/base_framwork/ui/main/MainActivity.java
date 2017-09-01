@@ -3,6 +3,7 @@ package com.example.fuxiangzhang.base_framwork.ui.main;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,8 @@ import com.example.fuxiangzhang.base_framwork.ui.main.di.MainModule;
 import com.example.fuxiangzhang.base_framwork.ui.main.mvp.MainContract;
 import com.example.fuxiangzhang.base_framwork.ui.main.mvp.MainPersenter;
 import com.example.fuxiangzhang.base_framwork.utils.LoginDialogFragment;
+import com.orhanobut.logger.Logger;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -94,7 +97,8 @@ public class MainActivity extends BaseActivity<MainPersenter> implements MainCon
         switch (view.getId()) {
             case R.id.btn_confirm:
                 getPresenter().submitData();
-                Log.e(TAG, "onViewClicked: ");
+//                Log.e(TAG, "onViewClicked: ");
+                Logger.e("onViewClicked: ");
                 break;
             case R.id.btn_dialog:
                 showLoginDialog();

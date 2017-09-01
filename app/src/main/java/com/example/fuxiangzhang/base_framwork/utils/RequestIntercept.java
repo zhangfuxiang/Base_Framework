@@ -6,6 +6,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
 
+
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.Request;
@@ -14,6 +15,7 @@ import okhttp3.ResponseBody;
 import okio.Buffer;
 import okio.BufferedSource;
 import timber.log.Timber;
+import com.orhanobut.logger.Logger;
 
 import static com.example.fuxiangzhang.base_framwork.utils.CharactorHandler.jsonFormat;
 
@@ -83,8 +85,9 @@ public class RequestIntercept implements Interceptor{
             }
             bodyString = clone.readString(charset);
         }
-        Timber.tag("Result").w(jsonFormat(bodyString));
 
+        Timber.tag("Result").w(jsonFormat(bodyString));
+        Logger.json(bodyString);
         return originalResponse;
     }
 }

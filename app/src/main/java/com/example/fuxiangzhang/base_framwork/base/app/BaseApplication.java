@@ -6,6 +6,8 @@ import com.example.fuxiangzhang.base_framwork.BuildConfig;
 import com.example.fuxiangzhang.base_framwork.base.di.AppModule;
 import com.example.fuxiangzhang.base_framwork.base.di.NetModule;
 import com.example.fuxiangzhang.base_framwork.base.di.ServiceModule;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 
 import timber.log.Timber;
 
@@ -37,6 +39,9 @@ public abstract class BaseApplication extends Application{
 
             Timber.plant(new Timber.DebugTree());
         }
+        //初始化logger
+        Logger.addLogAdapter(new AndroidLogAdapter());
+
         this.appModule=new AppModule(this);
         this.netModule=new NetModule(getBaseUrl());
         this.serviceModule=new ServiceModule();

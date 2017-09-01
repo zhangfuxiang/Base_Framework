@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.example.fuxiangzhang.base_framwork.base.mvp.BasePresenter;
 import com.example.fuxiangzhang.base_framwork.entity.DouBan;
+import com.orhanobut.logger.Logger;
 
 
 import javax.inject.Inject;
@@ -29,7 +30,7 @@ public class MainPersenter extends BasePresenter<MainContract.Model,MainContract
             public void call(DouBan mDouBan) {
                 if (mDouBan.getR()==0) {
                     getView().loginSucess(mDouBan);
-                    Log.e(TAG, "call: " );
+                    Logger.e("information");
                 }else {
                     getView().loginFailed();
                 }

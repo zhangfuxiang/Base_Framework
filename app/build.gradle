@@ -53,5 +53,9 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
     //noinspection GradleCompatible
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+
+
+    //引入日志库的依赖
+    compile 'com.orhanobut:logger:2.1.1'
     compile 'com.jakewharton.timber:timber:4.5.1'
 }
