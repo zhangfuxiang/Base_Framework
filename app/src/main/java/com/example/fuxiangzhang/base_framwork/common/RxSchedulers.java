@@ -1,9 +1,11 @@
 package com.example.fuxiangzhang.base_framwork.common;
 
 
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import io.reactivex.ObservableSource;
+import io.reactivex.ObservableTransformer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 
 /**
  * Created by Fuxiang.Zhang on 2017/7/25.
@@ -11,12 +13,13 @@ import rx.schedulers.Schedulers;
  */
 
 public class RxSchedulers {
-    public static <T> Observable.Transformer<T,T> io_main(){
-        Observable.Transformer<T,T> transformer=new Observable.Transformer<T, T>() {
+    public static <T> ObservableTransformer<T,T> io_main(){
+        ObservableTransformer<T,T> transformer=new ObservableTransformer<T, T>() {
             @Override
-            public Observable<T> call(Observable<T> tObservable) {
-                return tObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+            public ObservableSource<T> apply(io.reactivex.Observable<T> mObservable) {
+                return mObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
             }
+
         };
         return transformer;
     }
